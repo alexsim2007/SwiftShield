@@ -11,6 +11,7 @@
 		15F3BF87E20627A80B1E6F7F /* SwiftShieldCore in Frameworks */ = {isa = PBXBuildFile; productRef = 321BC16362BBC80D61AAC52B /* SwiftShieldCore */; };
 		2F4471EC48260F460E89EF5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7A5773680B30CB17902FB6A /* Assets.xcassets */; };
 		55BACDB9310D39577ED0C2D3 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482CBEC6401328BF618F736A /* Theme.swift */; };
+		66C38F23F9099563B4AE0355 /* Libbox.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B81CAC0E43482DAC63D529 /* Libbox.xcframework */; };
 		76B9F4E571596EA061FF2AE2 /* ProfilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F101895896D6F5ACC32FD70 /* ProfilesView.swift */; };
 		8256A0532DFD937A4EADE57A /* ImportProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FFFBA60A54918A5F633B1D /* ImportProfileView.swift */; };
 		9735CAC8F82A2AFC38FD1A05 /* TunnelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F16061EF821F1215889BC9 /* TunnelController.swift */; };
@@ -50,6 +51,7 @@
 /* Begin PBXFileReference section */
 		003623C044208085F14607DB /* ConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionView.swift; sourceTree = "<group>"; };
 		0AAB8DE1B2B9E9145A14BAD9 /* PacketTunnelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketTunnelProvider.swift; sourceTree = "<group>"; };
+		34B81CAC0E43482DAC63D529 /* Libbox.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Libbox.xcframework; path = Vendor/Libbox.xcframework; sourceTree = "<group>"; };
 		3B186ACC93858601C6F39141 /* SwiftShieldCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SwiftShieldCore; path = Packages/SwiftShieldCore; sourceTree = SOURCE_ROOT; };
 		482CBEC6401328BF618F736A /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		7391F6098E7DCB9D1445434B /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC8D9BB71EC9DEC9B8DDF51E /* SwiftShieldCore in Frameworks */,
+				66C38F23F9099563B4AE0355 /* Libbox.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,12 +105,21 @@
 			path = Infrastructure;
 			sourceTree = "<group>";
 		};
+		4D319664CECE1716B693564E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				34B81CAC0E43482DAC63D529 /* Libbox.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5267483A85FF6E5B2DE772D5 = {
 			isa = PBXGroup;
 			children = (
 				8E1CB5C7BA1154AC797EF607 /* App */,
 				721CB9F6B4857CA3BF2FD71F /* Packages */,
 				E96C0D9F402AE1BD9EC64BA6 /* TunnelExtension */,
+				4D319664CECE1716B693564E /* Frameworks */,
 				1162F182B4F5F83480BC2F41 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -348,6 +360,10 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_ENTITLEMENTS = Config/Tunnel.entitlements;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"Vendor\"",
+				);
 				INFOPLIST_FILE = "Config/Tunnel-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -512,6 +528,10 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_ENTITLEMENTS = Config/Tunnel.entitlements;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"Vendor\"",
+				);
 				INFOPLIST_FILE = "Config/Tunnel-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

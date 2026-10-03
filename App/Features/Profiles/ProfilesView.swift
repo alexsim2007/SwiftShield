@@ -15,7 +15,7 @@ struct ProfilesView: View {
                 } actions: {
                     Button("Добавить профиль") { showsImport = true }
                         .buttonStyle(.borderedProminent)
-                        .tint(.shieldGreen)
+                        .tint(.primary)
                 }
             } else {
                 List {
@@ -53,7 +53,7 @@ private struct ProfileRow: View {
         HStack(spacing: 14) {
             Image(systemName: protocolIcon)
                 .font(.title3)
-                .foregroundStyle(protocolColor)
+                .foregroundStyle(.primary)
                 .frame(width: 32, height: 32)
             VStack(alignment: .leading, spacing: 4) {
                 Text(profile.name)
@@ -66,7 +66,7 @@ private struct ProfileRow: View {
             Spacer()
             if isSelected {
                 Image(systemName: "checkmark.circle.fill")
-                    .foregroundStyle(Color.shieldGreen)
+                    .foregroundStyle(.primary)
             }
         }
         .padding(.vertical, 5)
@@ -77,14 +77,6 @@ private struct ProfileRow: View {
         case .vless: return "bolt.shield.fill"
         case .trojan: return "lock.shield.fill"
         case .shadowsocks: return "network"
-        }
-    }
-
-    private var protocolColor: Color {
-        switch profile.kind {
-        case .vless: return .shieldBlue
-        case .trojan: return .shieldGreen
-        case .shadowsocks: return .shieldOrange
         }
     }
 }

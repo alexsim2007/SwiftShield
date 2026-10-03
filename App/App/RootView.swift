@@ -20,7 +20,7 @@ struct RootView: View {
             }
             .tabItem { Label("Настройки", systemImage: "gearshape") }
         }
-        .tint(.shieldGreen)
+        .tint(.primary)
         .alert(item: $appModel.presentedError) { error in
             Alert(
                 title: Text("SwiftShield"),

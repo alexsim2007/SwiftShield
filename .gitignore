@@ -3,5 +3,7 @@
 DerivedData/
 build/
 Artifacts/
+.vendor-build/
+Vendor/Libbox.xcframework/
 *.xcuserstate
 xcuserdata/

@@ -72,6 +72,8 @@ targets:
         APPLICATION_EXTENSION_API_ONLY: true
     dependencies:
       - package: SwiftShieldCore
+      - framework: Vendor/Libbox.xcframework
+        embed: false
 
 schemes:
   SwiftShield:

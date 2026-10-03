@@ -43,15 +43,15 @@ struct ConnectionView: View {
         } label: {
             ZStack {
                 Circle()
-                    .fill(buttonColor.opacity(0.13))
+                    .fill(Color.primary.opacity(0.08))
                     .frame(width: 184, height: 184)
                 Circle()
-                    .fill(buttonColor)
+                    .fill(Color.primary)
                     .frame(width: 144, height: 144)
-                    .shadow(color: buttonColor.opacity(0.3), radius: 18, y: 10)
+                    .shadow(color: Color.primary.opacity(0.18), radius: 18, y: 10)
                 Image(systemName: "power")
                     .font(.system(size: 48, weight: .medium))
-                    .foregroundStyle(.white)
+                    .foregroundStyle(Color(.systemBackground))
             }
             .frame(width: 184, height: 184)
         }
@@ -87,7 +87,7 @@ struct ConnectionView: View {
                 } label: {
                     HStack(spacing: 14) {
                         Image(systemName: "server.rack")
-                            .foregroundStyle(Color.shieldBlue)
+                            .foregroundStyle(.primary)
                         VStack(alignment: .leading, spacing: 3) {
                             Text(appModel.selectedProfile?.name ?? "Выберите профиль")
                                 .font(.headline)
@@ -114,7 +114,7 @@ struct ConnectionView: View {
     private var engineNotice: some View {
         HStack(alignment: .top, spacing: 12) {
             Image(systemName: "wrench.and.screwdriver.fill")
-                .foregroundStyle(Color.shieldOrange)
+                .foregroundStyle(.primary)
             VStack(alignment: .leading, spacing: 4) {
                 Text("Сетевое ядро не подключено")
                     .font(.subheadline.weight(.semibold))
@@ -125,14 +125,6 @@ struct ConnectionView: View {
             Spacer(minLength: 0)
         }
         .padding(.top, 4)
-    }
-
-    private var buttonColor: Color {
-        switch tunnel.status {
-        case .connected: return .shieldGreen
-        case .connecting, .reasserting: return .shieldOrange
-        default: return .shieldBlue
-        }
     }
 
     private var statusSubtitle: String {
