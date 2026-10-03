@@ -1,0 +1,85 @@
+name: SwiftShield
+options:
+  bundleIdPrefix: com.swiftshield
+  deploymentTarget:
+    iOS: "17.0"
+  developmentLanguage: ru
+  xcodeVersion: "27.0"
+
+packages:
+  SwiftShieldCore:
+    path: Packages/SwiftShieldCore
+
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    CURRENT_PROJECT_VERSION: 1
+    MARKETING_VERSION: 0.1.0
+    CODE_SIGN_STYLE: Automatic
+
+targets:
+  SwiftShield:
+    type: application
+    platform: iOS
+    sources:
+      - App
+    resources:
+      - App/Resources
+    info:
+      path: Config/App-Info.plist
+      properties:
+        CFBundleDisplayName: SwiftShield VPN
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+    entitlements:
+      path: Config/App.entitlements
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.swiftshield.app
+        PRODUCT_NAME: SwiftShield
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        SUPPORTS_MACCATALYST: false
+    dependencies:
+      - package: SwiftShieldCore
+      - target: TunnelExtension
+        embed: true
+
+  TunnelExtension:
+    type: app-extension
+    platform: iOS
+    sources:
+      - TunnelExtension
+    info:
+      path: Config/Tunnel-Info.plist
+      properties:
+        CFBundleDisplayName: SwiftShield Tunnel
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.networkextension.packet-tunnel
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).PacketTunnelProvider
+    entitlements:
+      path: Config/Tunnel.entitlements
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.swiftshield.app.TunnelExtension
+        PRODUCT_NAME: TunnelExtension
+        SKIP_INSTALL: true
+        APPLICATION_EXTENSION_API_ONLY: true
+    dependencies:
+      - package: SwiftShieldCore
+
+schemes:
+  SwiftShield:
+    build:
+      targets:
+        SwiftShield: all
+        TunnelExtension: all
+    run:
+      config: Debug
+    archive:
+      config: Release
