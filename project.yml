@@ -13,8 +13,8 @@ packages:
 settings:
   base:
     SWIFT_VERSION: "5.0"
-    CURRENT_PROJECT_VERSION: 1
-    MARKETING_VERSION: 0.1.0
+    CURRENT_PROJECT_VERSION: 2
+    MARKETING_VERSION: 0.2.0
     CODE_SIGN_STYLE: Automatic
 
 targets:
@@ -31,11 +31,27 @@ targets:
         CFBundleDisplayName: SwiftShield VPN
         CFBundleShortVersionString: $(MARKETING_VERSION)
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        CFBundleURLTypes:
+          - CFBundleURLName: com.swiftshield.app
+            CFBundleURLSchemes:
+              - swiftshield
+        NSSupportsLiveActivities: true
+        NSSupportsLiveActivitiesFrequentUpdates: false
         UILaunchScreen: {}
         UISupportedInterfaceOrientations:
           - UIInterfaceOrientationPortrait
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
     entitlements:
       path: Config/App.entitlements
+      properties:
+        com.apple.developer.networking.networkextension:
+          - packet-tunnel-provider
+        com.apple.security.application-groups:
+          - group.com.swiftshield.app
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.swiftshield.app
@@ -47,6 +63,35 @@ targets:
       - package: SwiftShieldCore
       - target: TunnelExtension
         embed: true
+      - target: SwiftShieldWidgets
+        embed: true
+
+  SwiftShieldWidgets:
+    type: app-extension
+    platform: iOS
+    sources:
+      - Widgets
+    info:
+      path: Config/Widgets-Info.plist
+      properties:
+        CFBundleDisplayName: SwiftShield
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    entitlements:
+      path: Config/Widgets.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - group.com.swiftshield.app
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.swiftshield.app.Widgets
+        PRODUCT_NAME: SwiftShieldWidgets
+        SKIP_INSTALL: true
+        APPLICATION_EXTENSION_API_ONLY: true
+    dependencies:
+      - package: SwiftShieldCore
 
   TunnelExtension:
     type: app-extension
@@ -64,6 +109,11 @@ targets:
           NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).PacketTunnelProvider
     entitlements:
       path: Config/Tunnel.entitlements
+      properties:
+        com.apple.developer.networking.networkextension:
+          - packet-tunnel-provider
+        com.apple.security.application-groups:
+          - group.com.swiftshield.app
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.swiftshield.app.TunnelExtension
@@ -74,6 +124,8 @@ targets:
       - package: SwiftShieldCore
       - framework: Vendor/Libbox.xcframework
         embed: false
+      - sdk: UIKit.framework
+      - sdk: libresolv.tbd
 
 schemes:
   SwiftShield:
@@ -81,6 +133,7 @@ schemes:
       targets:
         SwiftShield: all
         TunnelExtension: all
+        SwiftShieldWidgets: all
     run:
       config: Debug
     archive:

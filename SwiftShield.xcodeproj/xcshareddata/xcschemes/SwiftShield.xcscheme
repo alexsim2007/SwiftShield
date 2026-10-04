@@ -29,6 +29,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3A23A61AAAF039567CC6691F"
+               BuildableName = "SwiftShieldWidgets.appex"
+               BlueprintName = "SwiftShieldWidgets"
+               ReferencedContainer = "container:SwiftShield.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "3BD968FC00A20CADB731ECFD"
                BuildableName = "TunnelExtension.appex"
                BlueprintName = "TunnelExtension"

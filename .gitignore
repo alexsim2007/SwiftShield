@@ -1,6 +1,6 @@
 .DS_Store
 .build/
-DerivedData/
+DerivedData*/
 build/
 Artifacts/
 .vendor-build/

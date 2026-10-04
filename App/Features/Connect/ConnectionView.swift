@@ -13,7 +13,6 @@ struct ConnectionView: View {
                 statusHeader
                 powerButton
                 profilePicker
-                engineNotice
             }
             .frame(maxWidth: 560)
             .padding(.horizontal, 20)
@@ -56,7 +55,7 @@ struct ConnectionView: View {
             .frame(width: 184, height: 184)
         }
         .buttonStyle(.plain)
-        .disabled(appModel.selectedProfile == nil || tunnel.isBusy)
+        .disabled(appModel.selectedProfile == nil || tunnel.isBusy || tunnel.isTransitioning)
         .opacity(appModel.selectedProfile == nil ? 0.45 : 1)
         .accessibilityLabel(tunnel.isActive ? "Отключить VPN" : "Подключить VPN")
     }
@@ -109,22 +108,6 @@ struct ConnectionView: View {
                 }
             }
         }
-    }
-
-    private var engineNotice: some View {
-        HStack(alignment: .top, spacing: 12) {
-            Image(systemName: "wrench.and.screwdriver.fill")
-                .foregroundStyle(.primary)
-            VStack(alignment: .leading, spacing: 4) {
-                Text("Сетевое ядро не подключено")
-                    .font(.subheadline.weight(.semibold))
-                Text("Импорт и системная конфигурация готовы. Для передачи трафика требуется добавить Libbox.xcframework.")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-            }
-            Spacer(minLength: 0)
-        }
-        .padding(.top, 4)
     }
 
     private var statusSubtitle: String {

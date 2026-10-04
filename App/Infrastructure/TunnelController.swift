@@ -10,9 +10,17 @@ final class TunnelController: ObservableObject {
 
     private var manager: NETunnelProviderManager?
     private var statusObserver: NSObjectProtocol?
+    private var activeProfile: TunnelProfile?
+    private var connectedAt: Date?
+    private var disconnectRequested = false
+    private let liveActivity = LiveActivityController()
 
     var isActive: Bool {
-        [.connected, .connecting, .reasserting].contains(status)
+        [.connected, .connecting, .reasserting, .disconnecting].contains(status)
+    }
+
+    var isTransitioning: Bool {
+        [.connecting, .reasserting, .disconnecting].contains(status)
     }
 
     var statusTitle: String {
@@ -44,46 +52,122 @@ final class TunnelController: ObservableObject {
     func prepare() async {
         do {
             manager = try await loadManager()
+            activeProfile = profile(from: manager)
+            liveActivity.restore()
             refreshStatus()
         } catch {
             status = .invalid
         }
     }
 
-    func connect(profile: TunnelProfile) async throws {
+    func connect(profile: TunnelProfile, settings: TunnelSettings) async throws {
         #if targetEnvironment(simulator)
         throw TunnelControllerError.simulatorUnsupported
         #else
         isBusy = true
         defer { isBusy = false }
+        activeProfile = profile
+        connectedAt = nil
+        disconnectRequested = false
+        liveActivity.start(profile: profile)
 
-        let manager = try await loadManager()
-        let tunnelProtocol = NETunnelProviderProtocol()
-        tunnelProtocol.providerBundleIdentifier = AppConstants.tunnelBundleIdentifier
-        tunnelProtocol.serverAddress = profile.server
-        tunnelProtocol.includeAllNetworks = true
-        tunnelProtocol.excludeLocalNetworks = false
-        let payload = try JSONEncoder().encode(profile).base64EncodedString()
-        tunnelProtocol.providerConfiguration = [AppConstants.profileConfigurationKey: payload]
+        do {
+            let manager = try await loadManager()
+            let tunnelProtocol = NETunnelProviderProtocol()
+            tunnelProtocol.providerBundleIdentifier = AppConstants.tunnelBundleIdentifier
+            tunnelProtocol.serverAddress = profile.server
+            tunnelProtocol.includeAllNetworks = true
+            tunnelProtocol.excludeLocalNetworks = settings.bypassPrivateNetworks
+            let profilePayload = try JSONEncoder().encode(profile).base64EncodedString()
+            let settingsPayload = try JSONEncoder().encode(settings).base64EncodedString()
+            tunnelProtocol.providerConfiguration = [
+                AppConstants.profileConfigurationKey: profilePayload,
+                AppConstants.settingsConfigurationKey: settingsPayload,
+            ]
 
-        manager.protocolConfiguration = tunnelProtocol
-        manager.localizedDescription = "SwiftShield VPN"
-        manager.isEnabled = true
-        try await save(manager)
-        try await reload(manager)
-        self.manager = manager
-        try manager.connection.startVPNTunnel()
-        refreshStatus()
+            manager.protocolConfiguration = tunnelProtocol
+            manager.localizedDescription = "SwiftShield VPN"
+            manager.isEnabled = true
+            try await save(manager)
+            try await reload(manager)
+            self.manager = manager
+            try manager.connection.startVPNTunnel()
+            refreshStatus()
+        } catch {
+            liveActivity.end(profileName: profile.name)
+            activeProfile = nil
+            throw error
+        }
         #endif
     }
 
     func disconnect() async throws {
+        if manager == nil {
+            manager = try await loadManager()
+        }
+        disconnectRequested = true
+        if let activeProfile {
+            liveActivity.update(
+                status: "Отключение",
+                profileName: activeProfile.name,
+                connectedAt: connectedAt,
+                isConnected: false
+            )
+        }
         manager?.connection.stopVPNTunnel()
         refreshStatus()
     }
 
     private func refreshStatus() {
         status = manager?.connection.status ?? .invalid
+        syncLiveActivity()
+    }
+
+    private func syncLiveActivity() {
+        guard let activeProfile else { return }
+        switch status {
+        case .connected:
+            if disconnectRequested {
+                liveActivity.update(
+                    status: "Отключение",
+                    profileName: activeProfile.name,
+                    connectedAt: connectedAt,
+                    isConnected: false
+                )
+                return
+            }
+            if connectedAt == nil { connectedAt = Date() }
+            liveActivity.start(profile: activeProfile)
+            liveActivity.update(
+                status: statusTitle,
+                profileName: activeProfile.name,
+                connectedAt: connectedAt,
+                isConnected: true
+            )
+        case .connecting, .reasserting, .disconnecting:
+            liveActivity.update(
+                status: statusTitle,
+                profileName: activeProfile.name,
+                connectedAt: connectedAt,
+                isConnected: false
+            )
+        case .disconnected, .invalid:
+            liveActivity.end(profileName: activeProfile.name)
+            self.activeProfile = nil
+            connectedAt = nil
+            disconnectRequested = false
+        @unknown default:
+            break
+        }
+    }
+
+    private func profile(from manager: NETunnelProviderManager?) -> TunnelProfile? {
+        guard let tunnelProtocol = manager?.protocolConfiguration as? NETunnelProviderProtocol,
+              let payload = tunnelProtocol.providerConfiguration?[AppConstants.profileConfigurationKey] as? String,
+              let data = Data(base64Encoded: payload) else {
+            return nil
+        }
+        return try? JSONDecoder().decode(TunnelProfile.self, from: data)
     }
 
     private func loadManager() async throws -> NETunnelProviderManager {

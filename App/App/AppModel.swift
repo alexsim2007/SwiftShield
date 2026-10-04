@@ -7,12 +7,19 @@ final class AppModel: ObservableObject {
     @Published var selectedProfileID: UUID?
     @Published var presentedError: AppError?
     @Published var isImporting = false
+    @Published var tunnelSettings: TunnelSettings {
+        didSet { persistTunnelSettings() }
+    }
 
     let tunnelController = TunnelController()
 
     private let parser = SubscriptionParser()
     private let client = SubscriptionClient()
     private var store: SharedProfileStore?
+
+    init() {
+        tunnelSettings = Self.restoreTunnelSettings()
+    }
 
     var selectedProfile: TunnelProfile? {
         profiles.first { $0.id == selectedProfileID }
@@ -66,7 +73,7 @@ final class AppModel: ObservableObject {
                 guard let profile = selectedProfile else {
                     throw AppError(message: "Сначала добавьте и выберите профиль.")
                 }
-                try await tunnelController.connect(profile: profile)
+                try await tunnelController.connect(profile: profile, settings: tunnelSettings)
             }
         } catch {
             present(error)
@@ -101,6 +108,32 @@ final class AppModel: ObservableObject {
     private func restoredSelection() -> UUID? {
         guard let rawValue = UserDefaults.standard.string(forKey: "selectedProfileID") else { return nil }
         return UUID(uuidString: rawValue)
+    }
+
+    func handle(_ url: URL) async {
+        guard url.scheme == "swiftshield", url.host == "disconnect" else { return }
+        do {
+            try await tunnelController.disconnect()
+        } catch {
+            present(error)
+        }
+    }
+
+    func resetTunnelSettings() {
+        tunnelSettings = TunnelSettings()
+    }
+
+    private func persistTunnelSettings() {
+        guard let data = try? JSONEncoder().encode(tunnelSettings) else { return }
+        UserDefaults.standard.set(data, forKey: "tunnelSettings")
+    }
+
+    private static func restoreTunnelSettings() -> TunnelSettings {
+        guard let data = UserDefaults.standard.data(forKey: "tunnelSettings"),
+              let settings = try? JSONDecoder().decode(TunnelSettings.self, from: data) else {
+            return TunnelSettings()
+        }
+        return settings
     }
 
     private func present(_ error: Error) {

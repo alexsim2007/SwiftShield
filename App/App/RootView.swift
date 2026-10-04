@@ -21,6 +21,9 @@ struct RootView: View {
             .tabItem { Label("Настройки", systemImage: "gearshape") }
         }
         .tint(.primary)
+        .onOpenURL { url in
+            Task { await appModel.handle(url) }
+        }
         .alert(item: $appModel.presentedError) { error in
             Alert(
                 title: Text("SwiftShield"),

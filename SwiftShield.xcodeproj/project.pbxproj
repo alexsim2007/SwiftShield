@@ -7,24 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09E97F1273CEFF9AD89F70F6 /* LibboxPlatformInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F1A2F9F8A6818C0B9CEF33 /* LibboxPlatformInterface.swift */; };
 		12F36195E4BB393A00D53AA1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC589FE0FCE6E55F0C7E007 /* SettingsView.swift */; };
+		13B9B155F1C1D5E896AF0B52 /* SwiftShieldLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DB7C8E636873573A1E433F /* SwiftShieldLiveActivity.swift */; };
 		15F3BF87E20627A80B1E6F7F /* SwiftShieldCore in Frameworks */ = {isa = PBXBuildFile; productRef = 321BC16362BBC80D61AAC52B /* SwiftShieldCore */; };
+		198A41A67C0AC6B4896EFBE4 /* LibboxTunnelEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B3FD0881B3DBD009B2FF33 /* LibboxTunnelEngine.swift */; };
 		2F4471EC48260F460E89EF5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7A5773680B30CB17902FB6A /* Assets.xcassets */; };
+		4C69553F4D662F99D6BDEC3D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943ED71035DA9CE7E6148E9C /* UIKit.framework */; };
+		50AB84C60A9BBF092FA713F1 /* LiveActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9567D0A76EB36297C1A26694 /* LiveActivityController.swift */; };
 		55BACDB9310D39577ED0C2D3 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482CBEC6401328BF618F736A /* Theme.swift */; };
+		62ED9488BDE419CEC3C54072 /* SwiftShieldCore in Frameworks */ = {isa = PBXBuildFile; productRef = 45182F6F334F89C507AFC665 /* SwiftShieldCore */; };
 		66C38F23F9099563B4AE0355 /* Libbox.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B81CAC0E43482DAC63D529 /* Libbox.xcframework */; };
+		6FEBABCB7169013F0D2C6F2D /* Blocking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8994D478877CFF8D85D2A9 /* Blocking.swift */; };
 		76B9F4E571596EA061FF2AE2 /* ProfilesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F101895896D6F5ACC32FD70 /* ProfilesView.swift */; };
+		771AE6BF1E3ADBF4D2A716B9 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 175F8FC2735C90E595ED15F3 /* libresolv.tbd */; };
+		7B2BDB49F940A75D844513B8 /* SwiftShieldWidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0B939A89D57B72B80D9C9F /* SwiftShieldWidgetsBundle.swift */; };
 		8256A0532DFD937A4EADE57A /* ImportProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FFFBA60A54918A5F633B1D /* ImportProfileView.swift */; };
+		8F4E198D1105D57F63ACC5B2 /* SwiftShieldWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 1D20178D807E66A982AA1868 /* SwiftShieldWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9735CAC8F82A2AFC38FD1A05 /* TunnelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F16061EF821F1215889BC9 /* TunnelController.swift */; };
 		AFBC6C45F129F03EA8906594 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F516DD00F3222F351106B4E8 /* AppModel.swift */; };
 		BC7017813410352E3009010B /* SwiftShieldApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B638C12DB0206E7B7D173105 /* SwiftShieldApp.swift */; };
 		C781C17897ED83B42F0308CC /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAB8DE1B2B9E9145A14BAD9 /* PacketTunnelProvider.swift */; };
 		DC8D9BB71EC9DEC9B8DDF51E /* SwiftShieldCore in Frameworks */ = {isa = PBXBuildFile; productRef = 9B30088837C98D6C7A98EFFA /* SwiftShieldCore */; };
+		E1EF76A1561D11A8BC2A2CEB /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 408657D623E2309D1F60BA51 /* PrivacyInfo.xcprivacy */; };
 		E9258D57810C805693CC8061 /* ConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003623C044208085F14607DB /* ConnectionView.swift */; };
 		F03854E87641AC2E2D423BD5 /* TunnelExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CD4E386DE0A60BD148AEE800 /* TunnelExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F3A20649008188BD14B7AC22 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7391F6098E7DCB9D1445434B /* RootView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		040E705DE58E8F4D7A6B596D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B7F5B8C6693B953F97401AEE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3A23A61AAAF039567CC6691F;
+			remoteInfo = SwiftShieldWidgets;
+		};
 		8E700AE1AF7413EB2B9A41DB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B7F5B8C6693B953F97401AEE /* Project object */;
@@ -42,6 +60,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				F03854E87641AC2E2D423BD5 /* TunnelExtension.appex in Embed Foundation Extensions */,
+				8F4E198D1105D57F63ACC5B2 /* SwiftShieldWidgets.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -51,17 +70,27 @@
 /* Begin PBXFileReference section */
 		003623C044208085F14607DB /* ConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionView.swift; sourceTree = "<group>"; };
 		0AAB8DE1B2B9E9145A14BAD9 /* PacketTunnelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketTunnelProvider.swift; sourceTree = "<group>"; };
+		11DB7C8E636873573A1E433F /* SwiftShieldLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftShieldLiveActivity.swift; sourceTree = "<group>"; };
+		175F8FC2735C90E595ED15F3 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		1D20178D807E66A982AA1868 /* SwiftShieldWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SwiftShieldWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		34B81CAC0E43482DAC63D529 /* Libbox.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Libbox.xcframework; path = Vendor/Libbox.xcframework; sourceTree = "<group>"; };
 		3B186ACC93858601C6F39141 /* SwiftShieldCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SwiftShieldCore; path = Packages/SwiftShieldCore; sourceTree = SOURCE_ROOT; };
+		408657D623E2309D1F60BA51 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		482CBEC6401328BF618F736A /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		50F1A2F9F8A6818C0B9CEF33 /* LibboxPlatformInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibboxPlatformInterface.swift; sourceTree = "<group>"; };
+		6E8994D478877CFF8D85D2A9 /* Blocking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blocking.swift; sourceTree = "<group>"; };
 		7391F6098E7DCB9D1445434B /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		81FFFBA60A54918A5F633B1D /* ImportProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportProfileView.swift; sourceTree = "<group>"; };
+		943ED71035DA9CE7E6148E9C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		94B3FD0881B3DBD009B2FF33 /* LibboxTunnelEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibboxTunnelEngine.swift; sourceTree = "<group>"; };
+		9567D0A76EB36297C1A26694 /* LiveActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityController.swift; sourceTree = "<group>"; };
 		9F101895896D6F5ACC32FD70 /* ProfilesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilesView.swift; sourceTree = "<group>"; };
 		A1F16061EF821F1215889BC9 /* TunnelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunnelController.swift; sourceTree = "<group>"; };
-		A520E97BA8A9EA5BC74A60FA /* SwiftShield.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = SwiftShield.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A520E97BA8A9EA5BC74A60FA /* SwiftShield.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftShield.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD0B939A89D57B72B80D9C9F /* SwiftShieldWidgetsBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftShieldWidgetsBundle.swift; sourceTree = "<group>"; };
 		B638C12DB0206E7B7D173105 /* SwiftShieldApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftShieldApp.swift; sourceTree = "<group>"; };
 		C7A5773680B30CB17902FB6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		CD4E386DE0A60BD148AEE800 /* TunnelExtension.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = TunnelExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD4E386DE0A60BD148AEE800 /* TunnelExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TunnelExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEC589FE0FCE6E55F0C7E007 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F516DD00F3222F351106B4E8 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,6 +102,16 @@
 			files = (
 				DC8D9BB71EC9DEC9B8DDF51E /* SwiftShieldCore in Frameworks */,
 				66C38F23F9099563B4AE0355 /* Libbox.xcframework in Frameworks */,
+				4C69553F4D662F99D6BDEC3D /* UIKit.framework in Frameworks */,
+				771AE6BF1E3ADBF4D2A716B9 /* libresolv.tbd in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80CCC5C6391C36BC28A03D96 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62ED9488BDE419CEC3C54072 /* SwiftShieldCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				A520E97BA8A9EA5BC74A60FA /* SwiftShield.app */,
+				1D20178D807E66A982AA1868 /* SwiftShieldWidgets.appex */,
 				CD4E386DE0A60BD148AEE800 /* TunnelExtension.appex */,
 			);
 			name = Products;
@@ -99,6 +139,7 @@
 		1EDB95AD4FE7FC237148878F /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				9567D0A76EB36297C1A26694 /* LiveActivityController.swift */,
 				482CBEC6401328BF618F736A /* Theme.swift */,
 				A1F16061EF821F1215889BC9 /* TunnelController.swift */,
 			);
@@ -109,6 +150,8 @@
 			isa = PBXGroup;
 			children = (
 				34B81CAC0E43482DAC63D529 /* Libbox.xcframework */,
+				175F8FC2735C90E595ED15F3 /* libresolv.tbd */,
+				943ED71035DA9CE7E6148E9C /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -119,6 +162,7 @@
 				8E1CB5C7BA1154AC797EF607 /* App */,
 				721CB9F6B4857CA3BF2FD71F /* Packages */,
 				E96C0D9F402AE1BD9EC64BA6 /* TunnelExtension */,
+				840DC2B0445B7FF9774A6C86 /* Widgets */,
 				4D319664CECE1716B693564E /* Frameworks */,
 				1162F182B4F5F83480BC2F41 /* Products */,
 			);
@@ -128,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				C7A5773680B30CB17902FB6A /* Assets.xcassets */,
+				408657D623E2309D1F60BA51 /* PrivacyInfo.xcprivacy */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -166,6 +211,15 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		840DC2B0445B7FF9774A6C86 /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				11DB7C8E636873573A1E433F /* SwiftShieldLiveActivity.swift */,
+				AD0B939A89D57B72B80D9C9F /* SwiftShieldWidgetsBundle.swift */,
+			);
+			path = Widgets;
+			sourceTree = "<group>";
+		};
 		8E1CB5C7BA1154AC797EF607 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +244,9 @@
 		E96C0D9F402AE1BD9EC64BA6 /* TunnelExtension */ = {
 			isa = PBXGroup;
 			children = (
+				6E8994D478877CFF8D85D2A9 /* Blocking.swift */,
+				50F1A2F9F8A6818C0B9CEF33 /* LibboxPlatformInterface.swift */,
+				94B3FD0881B3DBD009B2FF33 /* LibboxTunnelEngine.swift */,
 				0AAB8DE1B2B9E9145A14BAD9 /* PacketTunnelProvider.swift */,
 			);
 			path = TunnelExtension;
@@ -207,6 +264,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3A23A61AAAF039567CC6691F /* SwiftShieldWidgets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB59F0776CBA10EE6F52596F /* Build configuration list for PBXNativeTarget "SwiftShieldWidgets" */;
+			buildPhases = (
+				63F23B328868A0ACC61EFAB6 /* Sources */,
+				80CCC5C6391C36BC28A03D96 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftShieldWidgets;
+			packageProductDependencies = (
+				45182F6F334F89C507AFC665 /* SwiftShieldCore */,
+			);
+			productName = SwiftShieldWidgets;
+			productReference = 1D20178D807E66A982AA1868 /* SwiftShieldWidgets.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		3BD968FC00A20CADB731ECFD /* TunnelExtension */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3BB19CA5F50D9D9A1E926B31 /* Build configuration list for PBXNativeTarget "TunnelExtension" */;
@@ -239,6 +315,7 @@
 			);
 			dependencies = (
 				6BEA992BC1D5FFA05E7C2628 /* PBXTargetDependency */,
+				B0B2F177E1B35AE6882B031C /* PBXTargetDependency */,
 			);
 			name = SwiftShield;
 			packageProductDependencies = (
@@ -257,6 +334,9 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 2700;
 				TargetAttributes = {
+					3A23A61AAAF039567CC6691F = {
+						ProvisioningStyle = Automatic;
+					};
 					3BD968FC00A20CADB731ECFD = {
 						ProvisioningStyle = Automatic;
 					};
@@ -283,6 +363,7 @@
 			projectRoot = "";
 			targets = (
 				A8D941D6D86EB13950E7FE3E /* SwiftShield */,
+				3A23A61AAAF039567CC6691F /* SwiftShieldWidgets */,
 				3BD968FC00A20CADB731ECFD /* TunnelExtension */,
 			);
 		};
@@ -294,6 +375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F4471EC48260F460E89EF5B /* Assets.xcassets in Resources */,
+				E1EF76A1561D11A8BC2A2CEB /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +386,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FEBABCB7169013F0D2C6F2D /* Blocking.swift in Sources */,
+				09E97F1273CEFF9AD89F70F6 /* LibboxPlatformInterface.swift in Sources */,
+				198A41A67C0AC6B4896EFBE4 /* LibboxTunnelEngine.swift in Sources */,
 				C781C17897ED83B42F0308CC /* PacketTunnelProvider.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63F23B328868A0ACC61EFAB6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13B9B155F1C1D5E896AF0B52 /* SwiftShieldLiveActivity.swift in Sources */,
+				7B2BDB49F940A75D844513B8 /* SwiftShieldWidgetsBundle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +409,7 @@
 				AFBC6C45F129F03EA8906594 /* AppModel.swift in Sources */,
 				E9258D57810C805693CC8061 /* ConnectionView.swift in Sources */,
 				8256A0532DFD937A4EADE57A /* ImportProfileView.swift in Sources */,
+				50AB84C60A9BBF092FA713F1 /* LiveActivityController.swift in Sources */,
 				76B9F4E571596EA061FF2AE2 /* ProfilesView.swift in Sources */,
 				F3A20649008188BD14B7AC22 /* RootView.swift in Sources */,
 				12F36195E4BB393A00D53AA1 /* SettingsView.swift in Sources */,
@@ -332,6 +427,11 @@
 			target = 3BD968FC00A20CADB731ECFD /* TunnelExtension */;
 			targetProxy = 8E700AE1AF7413EB2B9A41DB /* PBXContainerItemProxy */;
 		};
+		B0B2F177E1B35AE6882B031C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3A23A61AAAF039567CC6691F /* SwiftShieldWidgets */;
+			targetProxy = 040E705DE58E8F4D7A6B596D /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -342,6 +442,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Config/App.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = M4XRA39644;
 				INFOPLIST_FILE = "Config/App-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -360,6 +461,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_ENTITLEMENTS = Config/Tunnel.entitlements;
+				DEVELOPMENT_TEAM = M4XRA39644;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"Vendor\"",
@@ -413,7 +515,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -432,7 +534,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.2.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -444,6 +546,46 @@
 			};
 			name = Debug;
 		};
+		971F7960C9E480E72751DB5B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = Config/Widgets.entitlements;
+				DEVELOPMENT_TEAM = M4XRA39644;
+				INFOPLIST_FILE = "Config/Widgets-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiftshield.app.Widgets;
+				PRODUCT_NAME = SwiftShieldWidgets;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A240D8610A446A766312BAD6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = Config/Widgets.entitlements;
+				DEVELOPMENT_TEAM = M4XRA39644;
+				INFOPLIST_FILE = "Config/Widgets-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiftshield.app.Widgets;
+				PRODUCT_NAME = SwiftShieldWidgets;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		A338D6E7B26BD2741EDD3277 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -451,6 +593,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Config/App.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = M4XRA39644;
 				INFOPLIST_FILE = "Config/App-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -499,7 +642,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -512,7 +655,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.2.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -528,6 +671,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_ENTITLEMENTS = Config/Tunnel.entitlements;
+				DEVELOPMENT_TEAM = M4XRA39644;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"Vendor\"",
@@ -576,6 +720,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
+		BB59F0776CBA10EE6F52596F /* Build configuration list for PBXNativeTarget "SwiftShieldWidgets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				971F7960C9E480E72751DB5B /* Debug */,
+				A240D8610A446A766312BAD6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
@@ -587,6 +740,10 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		321BC16362BBC80D61AAC52B /* SwiftShieldCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SwiftShieldCore;
+		};
+		45182F6F334F89C507AFC665 /* SwiftShieldCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SwiftShieldCore;
 		};

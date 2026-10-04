@@ -1,6 +1,6 @@
 # SwiftShield VPN
 
-Нативный iOS-клиент на SwiftUI с Packet Tunnel Provider. Проект умеет импортировать и хранить профили, создавать системную VPN-конфигурацию и запускать Network Extension. Нативный `Libbox.xcframework` уже собирается и подключён к target расширения; запуск трафика через его platform bridge будет следующим этапом.
+Нативный iOS-клиент на SwiftUI с Packet Tunnel Provider и сетевым ядром sing-box. Проект импортирует профили, создаёт системную VPN-конфигурацию и передаёт трафик через нативный `Libbox.xcframework`.
 
 ## Что уже есть
 
@@ -9,8 +9,12 @@
 - Хранилище в App Group с iOS Data Protection.
 - `NETunnelProviderManager` и `NEPacketTunnelProvider`.
 - Воспроизводимая сборка `libbox` для iPhone и iOS Simulator.
+- TUN bridge, системные маршруты и защищённый DNS через выбранный прокси.
+- MUX, фрагментация TLS/UDP, TCP Fast Open, XUDP, DNS/IP-стратегии и настройка MTU.
+- Live Activity для экрана блокировки и Dynamic Island с быстрым отключением.
 - Чёрно-белый интерфейс без цветных акцентов.
-- Unit-тесты парсера.
+- Монохромная App Store icon и privacy manifest.
+- Unit-тесты парсера и генератора конфигурации.
 
 ## Первый запуск
 
@@ -18,12 +22,14 @@
 2. При отсутствии `Vendor/Libbox.xcframework` выполнить `Scripts/build-libbox.sh`.
 3. Создать проект: `xcodegen generate`.
 4. Открыть `SwiftShield.xcodeproj` в Xcode.
-5. Выбрать свою Team для targets `SwiftShield` и `TunnelExtension`.
+5. Выбрать свою Team для targets `SwiftShield`, `TunnelExtension` и `SwiftShieldWidgets`.
 6. Заменить `com.swiftshield.app` и `group.com.swiftshield.app`, если эти идентификаторы заняты в Apple Developer.
 7. Включить Network Extensions и App Groups для обоих App ID.
 
 Системный Packet Tunnel нужно проверять на физическом iPhone. Симулятор подходит для UI и импорта, но не для полноценной проверки VPN.
 
-## Следующий сетевой этап
+Инструкция по первой бета-сборке: [TESTFLIGHT.md](TESTFLIGHT.md).
 
-Нужно реализовать platform bridge вместо `UnavailableTunnelEngine`: передать sing-box файловый дескриптор TUN, применить маршруты и DNS, затем запускать конфигурацию выбранного профиля. sing-box распространяется по GPL-3.0; до публикации приложения необходимо выполнить требования этой лицензии к распространению исходного кода.
+## Лицензия ядра
+
+sing-box распространяется по GPL-3.0. До публикации приложения необходимо выполнить требования этой лицензии к распространению исходного кода.

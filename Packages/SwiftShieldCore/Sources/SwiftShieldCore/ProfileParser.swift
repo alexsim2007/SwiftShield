@@ -61,7 +61,7 @@ public struct ProfileParser: Sendable {
             shortID: query["sid"],
             fingerprint: query["fp"],
             flow: query["flow"],
-            path: query["path"],
+            path: transportPath(query),
             hostHeader: query["host"],
             originalURI: value
         )
@@ -87,7 +87,7 @@ public struct ProfileParser: Sendable {
             security: security(query["security"] ?? "tls"),
             serverName: query["sni"],
             fingerprint: query["fp"],
-            path: query["path"],
+            path: transportPath(query),
             hostHeader: query["host"],
             originalURI: value
         )
@@ -168,6 +168,10 @@ public struct ProfileParser: Sendable {
         TunnelProfile.Transport(rawValue: value?.lowercased() ?? "tcp") ?? .tcp
     }
 
+    private func transportPath(_ query: [String: String]) -> String? {
+        query["servicename"] ?? query["service_name"] ?? query["path"]
+    }
+
     private func security(_ value: String?) -> TunnelProfile.Security {
         TunnelProfile.Security(rawValue: value?.lowercased() ?? "none") ?? .none
     }
@@ -191,4 +195,3 @@ public func decodeBase64(_ value: String) -> Data? {
     let padded = remainder == 0 ? urlSafe : urlSafe + String(repeating: "=", count: 4 - remainder)
     return Data(base64Encoded: padded, options: .ignoreUnknownCharacters)
 }
-
